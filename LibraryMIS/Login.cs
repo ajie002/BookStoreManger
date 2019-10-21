@@ -217,7 +217,7 @@ namespace LibraryMIS
 		[STAThread]
 		static void Main() 
 		{
-			Application.Run(new main());
+			Application.Run(new Login());
 		}
 
 		private void btAdd_Click(object sender, System.EventArgs e)
