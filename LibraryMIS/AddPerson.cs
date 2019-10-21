@@ -341,14 +341,14 @@ namespace LibraryMIS
 			try
 			{
 				oleConnection1.Open();
-				string sql="select identity from identityinfo";
+				string sql="select identityname from identityinfo";
 				SqlDataAdapter adp=new SqlDataAdapter(sql,oleConnection1);
 
 				DataSet ds=new DataSet();
 				adp.Fill(ds,"identi");
 				comboId.DataSource=ds.Tables["identi"].DefaultView;
-				comboId.DisplayMember="identity";
-				comboId.ValueMember="identity";
+				comboId.DisplayMember= "identityname";
+				comboId.ValueMember= "identityname";
 				oleConnection1.Close();
 			}
 			catch (Exception ee)

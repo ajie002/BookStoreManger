@@ -229,7 +229,7 @@ namespace LibraryMIS
 			else
 			{
 				oleConnection1.Open();
-				string sql="select * from identityinfo where identity='"+textId.Text.Trim()+"'";
+				string sql="select * from identityinfo where identityname='"+textId.Text.Trim()+"'";
 				SqlCommand cmd = new SqlCommand(sql,oleConnection1);
 				if (null!=cmd.ExecuteScalar())
 					MessageBox.Show("身份重复","提示");
