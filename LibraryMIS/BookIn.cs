@@ -544,7 +544,7 @@ namespace LibraryMIS
 			else
 			{
 				oleConnection1.Open();
-				string sql = "delete * from bookOut where BID = '"+textBID.Text.Trim()+"'and PID='"+textPID.Text.Trim()+"'";
+				string sql = "delete from bookOut where BID = '"+textBID.Text.Trim()+"'and PID='"+textPID.Text.Trim()+"'";
 				SqlCommand cmd = new SqlCommand(sql,oleConnection1);
 				cmd.ExecuteNonQuery();
 				MessageBox.Show("还书成功","提示");

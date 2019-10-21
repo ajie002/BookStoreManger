@@ -211,7 +211,7 @@ namespace LibraryMIS
 				else
 				{
 					dr.Close();
-					sql = "delete * from identityinfo where identity not in(select distinct identity from person) and identity=  "+
+					sql = "delete from identityinfo where identity not in(select distinct identity from person) and identity=  "+
 						"'"+ds.Tables["identity"].Rows[dataGrid1.CurrentCell.RowNumber][0].ToString().Trim()+"'";
 					cmd.CommandText = sql;
 					cmd.ExecuteNonQuery();
