@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using LibraryMIS.DAL;
 
 namespace LibraryMIS
 {

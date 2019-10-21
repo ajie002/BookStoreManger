@@ -114,81 +114,81 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBook.cs">
+    <Compile Include="UI\AddBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddIdentity.cs">
+    <Compile Include="UI\AddIdentity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPerson.cs">
+    <Compile Include="UI\AddPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddType.cs">
+    <Compile Include="UI\AddType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUser.cs">
+    <Compile Include="UI\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Book.cs">
+    <Compile Include="UI\Book.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookIn.cs">
+    <Compile Include="UI\BookIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookOut.cs">
+    <Compile Include="UI\BookOut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookQuery.cs">
+    <Compile Include="UI\BookQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="database\dbConnection.cs">
+    <Compile Include="DAL\dbConnection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataSet1.cs">
+    <Compile Include="DAL\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet1.Designer.cs">
+    <Compile Include="DAL\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="help.cs">
+    <Compile Include="UI\help.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="help.Designer.cs">
+    <Compile Include="UI\help.Designer.cs">
       <DependentUpon>help.cs</DependentUpon>
     </Compile>
-    <Compile Include="Identity.cs">
+    <Compile Include="UI\Identity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="main.cs">
+    <Compile Include="UI\main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyBook.cs">
+    <Compile Include="UI\ModifyBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyCode.cs">
+    <Compile Include="UI\ModifyCode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyPerson.cs">
+    <Compile Include="UI\ModifyPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyType.cs">
+    <Compile Include="UI\ModifyType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyUser.cs">
+    <Compile Include="UI\ModifyUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Person.cs">
+    <Compile Include="UI\Person.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonQuery.cs">
+    <Compile Include="UI\PersonQuery.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -201,88 +201,88 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Type.cs">
+    <Compile Include="UI\Type.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="UI\User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="AddBook.resx">
+    <EmbeddedResource Include="UI\AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddIdentity.resx">
+    <EmbeddedResource Include="UI\AddIdentity.resx">
       <DependentUpon>AddIdentity.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddPerson.resx">
+    <EmbeddedResource Include="UI\AddPerson.resx">
       <DependentUpon>AddPerson.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddType.resx">
+    <EmbeddedResource Include="UI\AddType.resx">
       <DependentUpon>AddType.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddUser.resx">
+    <EmbeddedResource Include="UI\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Book.resx">
+    <EmbeddedResource Include="UI\Book.resx">
       <DependentUpon>Book.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookIn.resx">
+    <EmbeddedResource Include="UI\BookIn.resx">
       <DependentUpon>BookIn.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookOut.resx">
+    <EmbeddedResource Include="UI\BookOut.resx">
       <DependentUpon>BookOut.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookQuery.resx">
+    <EmbeddedResource Include="UI\BookQuery.resx">
       <DependentUpon>BookQuery.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="help.resx">
+    <EmbeddedResource Include="UI\help.resx">
       <DependentUpon>help.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Identity.resx">
+    <EmbeddedResource Include="UI\Identity.resx">
       <DependentUpon>Identity.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="main.resx">
+    <EmbeddedResource Include="UI\main.resx">
       <DependentUpon>main.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyBook.resx">
+    <EmbeddedResource Include="UI\ModifyBook.resx">
       <DependentUpon>ModifyBook.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyCode.resx">
+    <EmbeddedResource Include="UI\ModifyCode.resx">
       <DependentUpon>ModifyCode.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyPerson.resx">
+    <EmbeddedResource Include="UI\ModifyPerson.resx">
       <DependentUpon>ModifyPerson.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyType.resx">
+    <EmbeddedResource Include="UI\ModifyType.resx">
       <DependentUpon>ModifyType.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyUser.resx">
+    <EmbeddedResource Include="UI\ModifyUser.resx">
       <DependentUpon>ModifyUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Person.resx">
+    <EmbeddedResource Include="UI\Person.resx">
       <DependentUpon>Person.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonQuery.resx">
+    <EmbeddedResource Include="UI\PersonQuery.resx">
       <DependentUpon>PersonQuery.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -291,25 +291,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Type.resx">
+    <EmbeddedResource Include="UI\Type.resx">
       <DependentUpon>Type.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="User.resx">
+    <EmbeddedResource Include="UI\User.resx">
       <DependentUpon>User.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="App.ico" />
     <None Include="app.config" />
-    <None Include="DataSet1.xsc">
+    <None Include="DAL\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="DataSet1.xsd">
+    <None Include="DAL\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSet1.xss">
+    <None Include="DAL\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
@@ -352,6 +352,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BLL\" />
+    <Folder Include="database\" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
