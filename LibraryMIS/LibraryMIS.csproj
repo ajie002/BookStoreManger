@@ -114,7 +114,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI\AddBook.cs">
+    <Compile Include="BLL\LibraryService.cs" />
+    <Compile Include="Models\BookModel.cs" />
+    <Compile Include="UI\frmAddBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\AddIdentity.cs">
@@ -132,7 +134,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UI\Book.cs">
+    <Compile Include="UI\frmBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\BookIn.cs">
@@ -155,6 +157,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmModifyBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\help.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,13 +169,10 @@
     <Compile Include="UI\Identity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Login.cs">
+    <Compile Include="UI\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ModifyBook.cs">
+    <Compile Include="UI\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\ModifyCode.cs">
@@ -207,8 +209,8 @@
     <Compile Include="UI\User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="UI\AddBook.resx">
-      <DependentUpon>AddBook.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmAddBook.resx">
+      <DependentUpon>frmAddBook.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddIdentity.resx">
@@ -227,8 +229,8 @@
       <DependentUpon>AddUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Book.resx">
-      <DependentUpon>Book.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmBook.resx">
+      <DependentUpon>frmBook.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\BookIn.resx">
@@ -250,16 +252,12 @@
       <DependentUpon>Identity.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\main.resx">
-      <DependentUpon>main.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ModifyBook.resx">
-      <DependentUpon>ModifyBook.cs</DependentUpon>
+    <EmbeddedResource Include="UI\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ModifyCode.resx">
@@ -354,9 +352,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\" />
     <Folder Include="database\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -5,13 +5,15 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using LibraryMIS.BLL;
+using LibraryMIS.Models;
 
 namespace LibraryMIS
 {
 	/// <summary>
 	/// Book 的摘要说明。
 	/// </summary>
-	public class Book : System.Windows.Forms.Form
+	public class frmBook : System.Windows.Forms.Form
 	{
 		private System.Windows.Forms.Button btAdd;
 		private System.Windows.Forms.Button btClose;
@@ -24,8 +26,10 @@ namespace LibraryMIS
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 		private SqlConnection oleConnection1 = null;
+        LibraryService serv = new LibraryService();
 
-		public Book()
+
+		public frmBook()
 		{
 			//
 			// Windows 窗体设计器支持所必需的
@@ -168,42 +172,49 @@ namespace LibraryMIS
 		#endregion
 
 		DataSet ds;
-		private void Book_Load(object sender, System.EventArgs e)
-		{
-			oleConnection1.Open();
-			string sql = "select BID as 图书编号,BName as 图书名,BWriter as 作者,BPublish as 出版社,BDate as 出版日期,BPrice as 价格,"+
-				"BNum as 数量,type as 类型,BRemark as 备注 from book";
-			SqlDataAdapter adp = new SqlDataAdapter(sql,oleConnection1);
-			ds = new DataSet();
-			ds.Clear();
-			adp.Fill(ds,"book");
-			dataGrid1.DataSource = ds.Tables["book"].DefaultView;
-			dataGrid1.CaptionText = "共有"+ds.Tables["book"].Rows.Count+"条记录";
-			oleConnection1.Close();
-		}
+        DataTable bookDataTable;
 
-		AddBook addBook;
+        private void Book_Load(object sender, System.EventArgs e)
+        {
+            bookDataTable = serv.getBookTable();
+
+            dataGrid1.DataSource = bookDataTable.DefaultView;
+            dataGrid1.CaptionText = "共有" + bookDataTable.Rows.Count + "条记录";
+        }
+
+        frmAddBook addBook;
 		private void btAdd_Click(object sender, System.EventArgs e)
 		{
-			addBook = new AddBook();
+			addBook = new frmAddBook();
 			addBook.ShowDialog();
 		}
 
-		ModifyBook modifyBook;
+		frmModifyBook modifyBook;
 		private void btModify_Click(object sender, System.EventArgs e)
 		{
 			if (dataGrid1.DataSource!=null || dataGrid1[dataGrid1.CurrentCell]!=null)
 			{
-				modifyBook = new ModifyBook();
-				modifyBook.textID.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][0].ToString().Trim();
-				modifyBook.textName.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][1].ToString().Trim();
-				modifyBook.textWriter.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][2].ToString().Trim();
-				modifyBook.textPublish.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][3].ToString().Trim();
-				modifyBook.date1.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][4].ToString().Trim();
-				modifyBook.textPrice.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][5].ToString().Trim();
-				modifyBook.textNum.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][6].ToString().Trim();
-				modifyBook.textType.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][7].ToString().Trim();
-				modifyBook.textRemark.Text = ds.Tables["book"].Rows[dataGrid1.CurrentCell.RowNumber][8].ToString().Trim();
+                BookModel book = new BookModel();
+                book.BID = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][0].ToString().Trim();
+                book.BName = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][1].ToString().Trim();
+                book.BWriter = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][2].ToString().Trim();
+                book.BPublish = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][3].ToString().Trim();
+                book.BDate = Convert.ToDateTime(bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][4].ToString().Trim());
+                book.BPrice = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][5].ToString().Trim();
+                book.BNum = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][6].ToString().Trim();
+                book.Type = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][7].ToString().Trim();
+                book.BRemark = bookDataTable.Rows[dataGrid1.CurrentCell.RowNumber][8].ToString().Trim();
+
+                modifyBook = new frmModifyBook();
+				modifyBook.textID.Text = book.BID;
+				modifyBook.textName.Text = book.BName;
+				modifyBook.textWriter.Text = book.BWriter;
+				modifyBook.textPublish.Text = book.BPublish;
+                modifyBook.date1.Text = book.BDate.ToString();
+                modifyBook.textPrice.Text = book.BPrice;
+                modifyBook.textNum.Text = book.BNum;
+				modifyBook.textType.Text = book.Type;
+                modifyBook.textRemark.Text = book.BRemark;
 				modifyBook.Show();
 			} 
 			else

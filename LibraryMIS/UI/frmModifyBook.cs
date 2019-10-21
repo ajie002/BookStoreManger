@@ -4,16 +4,18 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LibraryMIS.Models;
+using LibraryMIS.BLL;
 
 namespace LibraryMIS
 {
 	/// <summary>
 	/// ModifyBook 的摘要说明。
 	/// </summary>
-	public class ModifyBook : System.Windows.Forms.Form
+	public class frmModifyBook : System.Windows.Forms.Form
 	{
 		private System.Windows.Forms.Button btClose;
-		private System.Windows.Forms.Button btAdd;
+		private System.Windows.Forms.Button btUpdateBook;
 		private System.Windows.Forms.GroupBox groupBox1;
 		public System.Windows.Forms.DateTimePicker date1;
 		public System.Windows.Forms.TextBox textPrice;
@@ -38,8 +40,9 @@ namespace LibraryMIS
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 		private SqlConnection oleConnection1 = null;
+        LibraryService serv = new LibraryService();
 
-		public ModifyBook()
+		public frmModifyBook()
 		{
 			//
 			// Windows 窗体设计器支持所必需的
@@ -75,7 +78,7 @@ namespace LibraryMIS
 		private void InitializeComponent()
 		{
 			this.btClose = new System.Windows.Forms.Button();
-			this.btAdd = new System.Windows.Forms.Button();
+			this.btUpdateBook = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.textType = new System.Windows.Forms.TextBox();
 			this.date1 = new System.Windows.Forms.DateTimePicker();
@@ -110,13 +113,13 @@ namespace LibraryMIS
 			// 
 			// btAdd
 			// 
-			this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.btAdd.ForeColor = System.Drawing.Color.Black;
-			this.btAdd.Location = new System.Drawing.Point(112, 240);
-			this.btAdd.Name = "btAdd";
-			this.btAdd.TabIndex = 8;
-			this.btAdd.Text = "确定";
-			this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+			this.btUpdateBook.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btUpdateBook.ForeColor = System.Drawing.Color.Black;
+			this.btUpdateBook.Location = new System.Drawing.Point(112, 240);
+			this.btUpdateBook.Name = "btAdd";
+			this.btUpdateBook.TabIndex = 8;
+			this.btUpdateBook.Text = "确定";
+			this.btUpdateBook.Click += new System.EventHandler(this.btAdd_Click);
 			// 
 			// groupBox1
 			// 
@@ -320,7 +323,7 @@ namespace LibraryMIS
 			this.BackColor = System.Drawing.Color.Snow;
 			this.ClientSize = new System.Drawing.Size(512, 278);
 			this.Controls.Add(this.btClose);
-			this.Controls.Add(this.btAdd);
+			this.Controls.Add(this.btUpdateBook);
 			this.Controls.Add(this.groupBox1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -334,24 +337,29 @@ namespace LibraryMIS
 		#endregion
 
 		private void btAdd_Click(object sender, System.EventArgs e)
-		{
-			if (textName.Text.Trim()==""||textWriter.Text.Trim()==""||textNum.Text.Trim()=="")
-				MessageBox.Show("请填写完整信息","提示");
-			else
-			{
-				oleConnection1.Open();
-				string sql = "update book set BName='"+textName.Text.Trim()+"',BWriter='"+textWriter.Text.Trim()+"',BPublish='"+textPublish.Text.Trim()+"',"+ 
-					"BDate='"+date1.Text.Trim()+"',BNum='"+textNum.Text.Trim()+"',BPrice='"+textPrice.Text.Trim()+"',BRemark='"+textRemark.Text.Trim()+"'"+
-					" where BID='"+textID.Text.Trim()+"'";
-				SqlCommand cmd = new SqlCommand(sql,oleConnection1);
-				cmd.ExecuteNonQuery();
-				MessageBox.Show("修改成功","提示");
-				this.Close();
-				oleConnection1.Close();
-			}
-		}
+        {
+            BookModel book = new BookModel();
+            book.BID = textID.Text.Trim();
+            book.BName = textName.Text.Trim();
+            book.BNum = textNum.Text.Trim();
+            book.BWriter = textWriter.Text.Trim();
+            book.BPublish = textPublish.Text.Trim();
+            book.BDate = Convert.ToDateTime(date1.Text.Trim());
+            book.BPrice = textPrice.Text.Trim();
+            book.BRemark = textRemark.Text.Trim();
 
-		private void btClose_Click(object sender, System.EventArgs e)
+            try
+            {
+                serv.UpdateBook(book);
+                MessageBox.Show("修改成功", "提示");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示");
+            }
+        }
+
+        private void btClose_Click(object sender, System.EventArgs e)
 		{
 			this.Close();
 		}

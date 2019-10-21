@@ -11,7 +11,7 @@ namespace LibraryMIS
 	/// <summary>
 	/// Form1 的摘要说明。
 	/// </summary>
-	public class Login : System.Windows.Forms.Form
+	public class frmLogin : System.Windows.Forms.Form
 	{
 		private System.Windows.Forms.Button btClose;
 		private System.Windows.Forms.Button btAdd;
@@ -29,7 +29,7 @@ namespace LibraryMIS
         private GroupBox groupBox1;
 		private SqlConnection oleConnection1 = null;
 
-		public Login()
+		public frmLogin()
 		{
 			//
 			// Windows 窗体设计器支持所必需的
@@ -64,7 +64,7 @@ namespace LibraryMIS
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btClose = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.TextBox();
@@ -217,7 +217,7 @@ namespace LibraryMIS
 		[STAThread]
 		static void Main() 
 		{
-			Application.Run(new Login());
+			Application.Run(new frmLogin());
 		}
 
 		private void btAdd_Click(object sender, System.EventArgs e)
@@ -237,7 +237,7 @@ namespace LibraryMIS
                         //隐藏登录窗口
                         this.Visible=false;  
 						//创建并打开主界面
-						main main=new main();
+						frmMain main=new frmMain();
 						main.Tag=this.FindForm();
 						SqlDataReader dr;
 						cmd.CommandText=sql;
@@ -276,7 +276,7 @@ namespace LibraryMIS
 						//隐藏登录窗口
 						this.Visible=false;  
 						//创建并打开主界面
-						main main=new main();
+						frmMain main=new frmMain();
 						main.Tag=this.FindForm();
 						SqlDataReader dr;
 						cmd.CommandText=sql;

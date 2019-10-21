@@ -5,13 +5,15 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using LibraryMIS.Models;
+using LibraryMIS.BLL;
 
 namespace LibraryMIS
 {
 	/// <summary>
 	/// AddBook 的摘要说明。
 	/// </summary>
-	public class AddBook : System.Windows.Forms.Form
+	public class frmAddBook : System.Windows.Forms.Form
 	{
 		private System.Windows.Forms.Button btClose;
 		private System.Windows.Forms.Button btAdd;
@@ -39,8 +41,9 @@ namespace LibraryMIS
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 		private SqlConnection oleConnection1 = null;
+        LibraryService service = new LibraryService();
 
-		public AddBook()
+		public frmAddBook()
 		{
 			//
 			// Windows 窗体设计器支持所必需的
@@ -354,31 +357,34 @@ namespace LibraryMIS
 		}
 
 		private void btAdd_Click(object sender, System.EventArgs e)
-		{
-			if (textID.Text.Trim()==""||textName.Text.Trim()==""||textNum.Text.Trim()==""||textWriter.Text.Trim()=="")
-				MessageBox.Show("请填写完整信息","提示");
-			else
-			{
-				oleConnection1.Open();
-				string sql="select * from book where BID='"+textID.Text.Trim()+"'";
-				SqlCommand cmd = new SqlCommand(sql,oleConnection1);
-				if (null!=cmd.ExecuteScalar())
-					MessageBox.Show("图书编号重复","提示");
-				else
-				{
-					sql="insert into book values ('"+textID.Text.Trim()+"','"+textName.Text.Trim()+"','"+textWriter.Text.Trim()+"',"+
-						"'"+textPublish.Text.Trim()+"','"+date1.Text.Trim()+"','"+textPrice.Text.Trim()+"','"+textNum.Text.Trim()+"',"+
-						"'"+comboType.Text.Trim()+"','"+textRemark.Text.Trim()+"')";
-					cmd.CommandText=sql;
-					cmd.ExecuteNonQuery();
-					MessageBox.Show("添加成功","提示");
-					clear();
-				}
-				oleConnection1.Close();
-			}
-		}
+        {
+            BookModel book = new BookModel();
 
-		private void clear()
+            book.BID = textID.Text.Trim();
+            book.BName = textName.Text.Trim();
+            book.BNum = textNum.Text.Trim();
+            book.BWriter = textWriter.Text.Trim();
+            book.BPublish = textPublish.Text.Trim();
+            book.BDate = Convert.ToDateTime(date1.Text.Trim());
+            book.BPrice = textPrice.Text.Trim();
+            book.Type = comboType.Text.Trim();
+            book.BRemark = textRemark.Text.Trim();
+
+            try
+            {
+                service.AddBook(book);
+                clear();
+                MessageBox.Show("添加成功", "提示");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示");
+            }
+        }
+
+
+
+        private void clear()
 		{
 			textID.Text="";
 			textName.Text="";

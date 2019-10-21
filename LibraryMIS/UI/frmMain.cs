@@ -9,7 +9,7 @@ namespace LibraryMIS
 	/// <summary>
 	/// main 的摘要说明。
 	/// </summary>
-	public class main : System.Windows.Forms.Form
+	public class frmMain : System.Windows.Forms.Form
 	{
 		private System.Windows.Forms.MainMenu mainMenu1;
 		public System.Windows.Forms.MenuItem menuItem1;
@@ -49,7 +49,7 @@ namespace LibraryMIS
         private MenuItem menuItem21;
 		private System.ComponentModel.IContainer components;
 
-		public main()
+		public frmMain()
 		{
 			//
 			// Windows 窗体设计器支持所必需的
@@ -84,7 +84,7 @@ namespace LibraryMIS
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
@@ -276,7 +276,7 @@ namespace LibraryMIS
             // 
             // statusBar1
             // 
-            this.statusBar1.Location = new System.Drawing.Point(0, 313);
+            this.statusBar1.Location = new System.Drawing.Point(0, 293);
             this.statusBar1.Name = "statusBar1";
             this.statusBar1.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
             this.statusBarPanel1,
@@ -397,7 +397,7 @@ namespace LibraryMIS
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(614, 335);
+            this.ClientSize = new System.Drawing.Size(614, 315);
             this.Controls.Add(this.statusBar1);
             this.Controls.Add(this.toolBar1);
             this.IsMdiContainer = true;
@@ -447,10 +447,10 @@ namespace LibraryMIS
 			type.Show();
 		}
 
-		Book book;
+		frmBook book;
 		private void menuItem17_Click(object sender, System.EventArgs e)
 		{
-			book = new Book();
+			book = new frmBook();
 			for (int x=0;x<this.MdiChildren.Length;x++)
 			{
 				Form tempChild = (Form)this.MdiChildren[x];
