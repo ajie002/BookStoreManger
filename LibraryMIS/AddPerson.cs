@@ -372,7 +372,7 @@ namespace LibraryMIS
 				{
 					sql="insert into person values ('"+textID.Text.Trim()+"',"+
 						"'"+textName.Text.Trim()+"','"+comboSex.Text.Trim()+"','"+textPhone.Text.Trim()+"','"+textPN.Text.Trim()+"',"+
-						"'"+textCode.Text.Trim()+"',"+textMoney.Text.Trim()+",'"+comboId.Text.Trim()+"','"+textRemark.Text.Trim()+"',false)";
+						"'"+textCode.Text.Trim()+"',"+textMoney.Text.Trim()+",'"+comboId.Text.Trim()+"','"+textRemark.Text.Trim()+"',0)";
 					cmd.CommandText=sql;
 					cmd.ExecuteNonQuery();
 					MessageBox.Show("添加成功","提示");

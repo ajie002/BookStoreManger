@@ -234,8 +234,8 @@ namespace LibraryMIS
 					cmd.CommandText=sql;
 					if (null!=cmd.ExecuteScalar())
 					{
-						//隐藏登录窗口
-						this.Visible=false;  
+                        //隐藏登录窗口
+                        this.Visible=false;  
 						//创建并打开主界面
 						main main=new main();
 						main.Tag=this.FindForm();
@@ -261,7 +261,8 @@ namespace LibraryMIS
 						main.statusBarPanel2.Text=name.Text.Trim();
 						main.statusBarPanel6.Text="管理员";
 				
-						main.ShowDialog(); 
+						main.ShowDialog();
+                        this.Visible = true;
 					}
 					else
 						MessageBox.Show("用户名或密码错误","警告");					
@@ -294,8 +295,9 @@ namespace LibraryMIS
 						main.statusBarPanel2.Text=name.Text.Trim();
 						main.statusBarPanel6.Text="读者";
 				
-						main.ShowDialog(); 
-					}
+						main.ShowDialog();
+                        this.Visible = true;
+                    }
 					else
 						MessageBox.Show("用户名或密码错误","警告");			
 				} 
