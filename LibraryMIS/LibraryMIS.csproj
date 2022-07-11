@@ -92,9 +92,16 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
@@ -103,6 +110,8 @@
     <Reference Include="System.Drawing">
       <Name>System.Drawing</Name>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -115,7 +124,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\LibraryService.cs" />
+    <Compile Include="BookInfo.cs" />
+    <Compile Include="bookOut.cs" />
+    <Compile Include="BookType.cs" />
+    <Compile Include="Borrow.cs" />
+    <Compile Include="manager.cs" />
+    <Compile Include="Model1.cs" />
     <Compile Include="Models\BookModel.cs" />
+    <Compile Include="person.cs" />
+    <Compile Include="ReaderInfo.cs" />
+    <Compile Include="ReaderType.cs" />
+    <Compile Include="Return.cs" />
+    <Compile Include="type.cs" />
     <Compile Include="UI\frmAddBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +330,7 @@
     <None Include="DAL\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
